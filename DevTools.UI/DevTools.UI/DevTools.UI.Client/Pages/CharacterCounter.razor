@@ -1,0 +1,27 @@
+@page "/character-counter"
+@rendermode InteractiveWebAssembly
+
+<PageTitle>Character Counter</PageTitle>
+
+<h4>Character counter</h4>
+
+<div>
+    <textarea
+        @bind="CharacterText"
+        @bind:event="oninput"
+        class="form-control"
+        rows="20"
+        cols="20"
+        placeholder="Paste here...">   
+</textarea>
+
+    <div class="mt-2">
+        <p>
+        <h3>Character count: @CharacterText.Length</h3></p>
+    </div>
+
+</div>
+
+@code {
+    private string CharacterText { get; set; } = string.Empty;
+}

@@ -1,0 +1,64 @@
+@page "/prettifier"
+@using System.Text.Json
+@rendermode InteractiveWebAssembly
+
+<PageTitle>JSON Prettifier</PageTitle>
+
+<h4>JSON Prettifier</h4>
+
+<div>
+    <textarea
+        @bind="JsonText"
+        @bind:event="oninput"
+        class="form-control"
+        rows="20"
+        cols="20"
+        placeholder="Paste JSON here...">    
+    </textarea>
+
+    <div class="mt-2">
+        <button class="btn btn-primary" @onclick="PrettifyJson">Prettify JSON</button>
+    </div>
+</div>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="mt-2">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-danger" role="alert">
+                    @errorMessage
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+@code
+{
+    private string JsonText { get; set; } = string.Empty;
+
+    private string errorMessage = string.Empty;
+
+    private void PrettifyJson()
+    {
+        if (string.IsNullOrEmpty(JsonText))
+        {
+            errorMessage = "Please enter a JSON object";
+            return;
+        }
+
+        try
+        {
+            using var doc = JsonDocument.Parse(JsonText);
+            var options = new JsonSerializerOptions { WriteIndented = true };
+
+            JsonText = JsonSerializer.Serialize(doc, options);
+        }
+        catch (Exception e)
+        {
+            errorMessage = $"JSON is invalid: {e.Message}";
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@page "/guid-generator"
+@rendermode InteractiveWebAssembly
+
+<PageTitle>GUID Generator</PageTitle>
+
+<button type="button" class="btn btn-primary" @onclick="GenerateGuid">Generate GUID</button>
+
+@if (!string.IsNullOrEmpty(GeneratedGuid))
+{
+    <div class="d-flex mt-2">
+        <p>Generated GUID: <span>@GeneratedGuid</span>  <i class="bi bi-clipboard ms-2"></i></p>
+    </div>
+}
+
+@code {
+
+    private string GeneratedGuid { get; set; } = string.Empty;
+
+    private void GenerateGuid()
+    {
+        GeneratedGuid = Guid.NewGuid().ToString();
+    }
+
+}
