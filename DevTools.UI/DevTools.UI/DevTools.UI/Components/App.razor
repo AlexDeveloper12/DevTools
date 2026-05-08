@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]"/>
     <link rel="stylesheet" href="@Assets["app.css"]"/>
     <link rel="stylesheet" href="@Assets["DevTools.UI.styles.css"]"/>
+    <script src="https://kit.fontawesome.com/7a9646fab4.js" crossorigin="anonymous"></script>
     <ImportMap/>
     <link rel="icon" type="image/png" href="favicon.png"/>
     <HeadOutlet/>
@@ -17,6 +18,20 @@
 <body>
 <Routes/>
 <script src="@Assets["_framework/blazor.web.js"]"></script>
+
+<script>
+    window.clipboardCopy = {
+        copyText: async function (text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+    }
+</script>
+
 </body>
 
 </html>

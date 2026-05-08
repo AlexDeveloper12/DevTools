@@ -1,4 +1,5 @@
 @page "/guid-generator"
+@inject IJSRuntime Js
 @rendermode InteractiveWebAssembly
 
 <PageTitle>GUID Generator</PageTitle>
@@ -8,17 +9,61 @@
 @if (!string.IsNullOrEmpty(GeneratedGuid))
 {
     <div class="d-flex mt-2">
-        <p>Generated GUID: <span>@GeneratedGuid</span>  <i class="bi bi-clipboard ms-2"></i></p>
+        <p>Generated GUID: <span>@GeneratedGuid</span> <i class="bi bi-clipboard ms-2"></i></p>
+
+        <i class="fa-solid fa-clipboard ms-2"
+           title="Copy to clipboard"
+           @onclick="CopyToClipboard"
+           style="font-size:1.2rem;cursor: pointer"></i>
     </div>
 }
 
+@if (showSuccessAlert)
+{
+    <GenericAlert
+        @bind-IsVisible="@showSuccessAlert"
+        Message="@successAlertMessage"
+        Type="@successAlertType"/>
+}
+
+@if (showErrorAlert)
+{
+    <GenericAlert
+        @bind-IsVisible="showErrorAlert"
+        Message="@errorAlertMessage"
+        Type="@errorAlertType"/>
+}
+
 @code {
+
+    private bool showSuccessAlert = false;
+    private bool showErrorAlert = false;
+    private string successAlertType = "success";
+    private string successAlertMessage = "Guid copied to clipboard!";
+    private string errorAlertType = "warning";
+    private string errorAlertMessage = "Guid not copied to clipboard!";
 
     private string GeneratedGuid { get; set; } = string.Empty;
 
     private void GenerateGuid()
     {
         GeneratedGuid = Guid.NewGuid().ToString();
+    }
+
+    private async Task CopyToClipboard()
+    {
+        var result = await Js.InvokeAsync<bool>("clipboardCopy.copyText", GeneratedGuid);
+
+        if (result)
+        {
+            showSuccessAlert = true;
+            showErrorAlert = false;
+        }
+        else
+        {
+            showSuccessAlert = false;
+            showErrorAlert = true;
+        }
     }
 
 }
