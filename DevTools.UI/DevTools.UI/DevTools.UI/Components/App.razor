@@ -18,6 +18,20 @@
 <body>
 <Routes/>
 <script src="@Assets["_framework/blazor.web.js"]"></script>
+
+<script>
+    window.clipboardCopy = {
+        copyText: async function (text) {
+            try {
+                await navigator.clipboard.writeText(text);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+    }
+</script>
+
 </body>
 
 </html>
