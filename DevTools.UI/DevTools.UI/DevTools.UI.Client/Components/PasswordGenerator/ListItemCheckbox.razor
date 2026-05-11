@@ -1,0 +1,23 @@
+<li class="list-group-item">
+    <div class="form-check">
+        <input type="checkbox" 
+               checked="@IsOption" 
+               @onchange="CheckboxChanged"
+               class="form-check-input" id="@Id"/>
+        <label class="form-check-label" for="@Id">@Text</label>
+    </div>
+</li>
+
+@code {
+
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string Id { get; set; }
+    [Parameter] public bool IsOption { get; set; }
+    [Parameter] public EventCallback<bool> IsOptionChanged { get; set; }
+    
+    private async Task CheckboxChanged(ChangeEventArgs e)
+    {
+        IsOption = (bool)e.Value;
+        await IsOptionChanged.InvokeAsync(IsOption);
+    }
+}
