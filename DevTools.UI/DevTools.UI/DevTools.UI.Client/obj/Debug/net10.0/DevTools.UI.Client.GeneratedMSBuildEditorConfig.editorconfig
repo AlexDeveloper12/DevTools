@@ -36,10 +36,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYXNzd29yZEdlbmVyYXRvci9MaXN0SXRlbUNoZWNrYm94LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/alexbiddle/RiderProjects/DevTools/DevTools.UI/DevTools.UI/DevTools.UI.Client/Components/PasswordGenerator/PasswordInput.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYXNzd29yZEdlbmVyYXRvci9QYXNzd29yZElucHV0LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/alexbiddle/RiderProjects/DevTools/DevTools.UI/DevTools.UI/DevTools.UI.Client/Pages/CharacterCounter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2hhcmFjdGVyQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -59,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 [/Users/alexbiddle/RiderProjects/DevTools/DevTools.UI/DevTools.UI/DevTools.UI.Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alexbiddle/RiderProjects/DevTools/DevTools.UI/DevTools.UI/DevTools.UI.Client/Components/PasswordGenerator/PasswordInput.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYXNzd29yZEdlbmVyYXRvci9QYXNzd29yZElucHV0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ev7hhvdv41
 
 [/Users/alexbiddle/RiderProjects/DevTools/DevTools.UI/DevTools.UI/DevTools.UI.Client/Components/PasswordGenerator/PasswordStrengthDisplay.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYXNzd29yZEdlbmVyYXRvci9QYXNzd29yZFN0cmVuZ3RoRGlzcGxheS5yYXpvcg==
