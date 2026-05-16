@@ -1,5 +1,3 @@
-### README.md
-
 This project is a comprehensive collection of developer tools built using **Blazor WebAssembly** and **.NET 10**. It provides a range of utility applications designed to help developers with everyday tasks directly in the browser.
 
 ### Features
